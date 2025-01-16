@@ -2,6 +2,11 @@ import { render, screen } from '@testing-library/react';
 
 import ActiveLink from '..';
 
+jest.mock('@/navigation.mjs', () => ({
+  ...jest.requireActual('@/navigation.mjs'),
+  usePathname: jest.fn(),
+}));
+
 describe('ActiveLink', () => {
   it('renders as localized link', () => {
     render(
@@ -37,5 +42,23 @@ describe('ActiveLink', () => {
       'class',
       'link active'
     );
+  });
+
+  it('does not set active class when href base does not match', () => {
+    const { usePathname } = require('@/navigation.mjs');
+    usePathname.mockReturnValue('/not-link/sublink');
+
+    render(
+      <ActiveLink
+        className="link"
+        activeClassName="active"
+        allowSubPath={true}
+        href={'/link/sub-link'}
+      >
+        Link
+      </ActiveLink>
+    );
+
+    expect(screen.findByText('Link')).resolves.toHaveAttribute('class', 'link');
   });
 });

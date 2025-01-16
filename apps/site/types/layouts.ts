@@ -5,5 +5,5 @@ export type Layouts =
   | 'page'
   | 'blog-category'
   | 'blog-post'
-  | 'search'
-  | 'download';
+  | 'download'
+  | 'article';
