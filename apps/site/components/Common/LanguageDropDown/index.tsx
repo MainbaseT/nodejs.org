@@ -1,14 +1,13 @@
 import { LanguageIcon } from '@heroicons/react/24/outline';
+import type { LocaleConfig } from '@node-core/website-i18n/types';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import { useTranslations } from 'next-intl';
 import type { FC } from 'react';
 
-import type { LocaleConfig } from '@/types';
-
 import styles from './index.module.css';
 
-type SimpleLocaleConfig = Pick<LocaleConfig, 'name' | 'code'>;
+type SimpleLocaleConfig = Pick<LocaleConfig, 'name' | 'code' | 'localName'>;
 
 type LanguageDropDownProps = {
   onChange?: (newLocale: SimpleLocaleConfig) => void;
@@ -40,15 +39,15 @@ const LanguageDropdown: FC<LanguageDropDownProps> = ({
           sideOffset={5}
         >
           <div>
-            {availableLanguages.map(({ name, code }) => (
+            {availableLanguages.map(({ name, code, localName }) => (
               <DropdownMenu.Item
                 key={code}
-                onClick={() => onChange({ name, code })}
+                onClick={() => onChange({ name, code, localName })}
                 className={classNames(styles.dropDownItem, {
                   [styles.currentDropDown]: code === currentLanguage,
                 })}
               >
-                {name}
+                {localName}
               </DropdownMenu.Item>
             ))}
           </div>

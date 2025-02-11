@@ -2,62 +2,37 @@
 
 import diffLanguage from 'shiki/langs/diff.mjs';
 import dockerLanguage from 'shiki/langs/docker.mjs';
+import iniLanguage from 'shiki/langs/ini.mjs';
 import javaScriptLanguage from 'shiki/langs/javascript.mjs';
 import jsonLanguage from 'shiki/langs/json.mjs';
 import powershellLanguage from 'shiki/langs/powershell.mjs';
 import shellScriptLanguage from 'shiki/langs/shellscript.mjs';
 import shellSessionLanguage from 'shiki/langs/shellsession.mjs';
 import typeScriptLanguage from 'shiki/langs/typescript.mjs';
+import yamlLanguage from 'shiki/langs/yaml.mjs';
 import shikiNordTheme from 'shiki/themes/nord.mjs';
 
-/** @type {Array<import('shiki').LanguageRegistration>} */
+/**
+ * All languages needed within the Node.js website for syntax highlighting.
+ *
+ * @type {Array<import('shiki').LanguageRegistration>}
+ */
 export const LANGUAGES = [
   {
     ...javaScriptLanguage[0],
-    scopeName: 'source.js',
-    aliases: ['mjs', 'cjs', 'js'],
-    displayName: 'JavaScript',
+    // We path the JavaScript language to include the CommonJS and ES Module aliases
+    // that are commonly used (non-standard aliases) within our API docs and Blog posts
+    aliases: javaScriptLanguage[0].aliases.concat('cjs', 'mjs'),
   },
-  {
-    ...jsonLanguage[0],
-    scopeName: 'source.json',
-    displayName: 'JSON',
-  },
-  {
-    ...typeScriptLanguage[0],
-    scopeName: 'source.ts',
-    aliases: ['ts'],
-    displayName: 'TypeScript',
-  },
-  {
-    ...shellScriptLanguage[0],
-    scopeName: 'source.shell',
-    aliases: ['bash', 'sh', 'shell', 'zsh'],
-    displayName: 'Bash',
-  },
-  {
-    ...powershellLanguage[0],
-    scopeName: 'source.powershell',
-    aliases: ['ps', 'ps1'],
-    displayName: 'PowerShell',
-  },
-  {
-    ...shellSessionLanguage[0],
-    scopeName: 'text.shell-session',
-    aliases: ['console'],
-    displayName: 'Bash',
-  },
-  {
-    ...dockerLanguage[0],
-    scopeName: 'source.dockerfile',
-    aliases: ['dockerfile'],
-    displayName: 'Dockerfile',
-  },
-  {
-    ...diffLanguage[0],
-    scopeName: 'source.diff',
-    displayName: 'Diff',
-  },
+  ...iniLanguage,
+  ...jsonLanguage,
+  ...typeScriptLanguage,
+  ...shellScriptLanguage,
+  ...powershellLanguage,
+  ...shellSessionLanguage,
+  ...dockerLanguage,
+  ...diffLanguage,
+  ...yamlLanguage,
 ];
 
 // This is the default theme we use for our Shiki Syntax Highlighter

@@ -1,16 +1,14 @@
 import type { FC, PropsWithChildren } from 'react';
 
-import WithDownloadCategories from '@/components/withDownloadCategories';
+import { getClientContext } from '@/client-context';
+import WithDownloadSection from '@/components/withDownloadSection';
 import WithFooter from '@/components/withFooter';
 import WithNavBar from '@/components/withNavBar';
-import { useClientContext } from '@/hooks/react-server';
 
 import styles from './layouts.module.css';
 
 const DownloadLayout: FC<PropsWithChildren> = async ({ children }) => {
-  const {
-    frontmatter: { title, subtitle },
-  } = useClientContext();
+  const { frontmatter } = getClientContext();
 
   return (
     <>
@@ -18,11 +16,9 @@ const DownloadLayout: FC<PropsWithChildren> = async ({ children }) => {
 
       <div className={styles.downloadLayout}>
         <main>
-          <h1>{title}</h1>
+          <h1>{frontmatter.title}</h1>
 
-          <p>{subtitle}</p>
-
-          <WithDownloadCategories>{children}</WithDownloadCategories>
+          <WithDownloadSection>{children}</WithDownloadSection>
         </main>
       </div>
 

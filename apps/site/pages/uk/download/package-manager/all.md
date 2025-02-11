@@ -1,41 +1,11 @@
 ---
-layout: download
+layout: article
 title: Установка Node.js через менеджер пакетів
 ---
 
 # Установка Node.js через менеджери пакетів
 
-> Пакети на цій сторінці обслуговуються та підтримуються їхніми відповідними розробниками, **не** командою Node.js. Будь ласка, повідомляйте про проблеми цих пакетів їхнім розробникам. Якщо виявиться, що проблема є помилкою Node.js, то вони повідомлять нас про неї.
-
----
-
-- [Alpine Linux](#alpine-linux)
-- [Android](#android)
-- [Arch Linux](#arch-linux)
-- [CentOS, Fedora та Red Hat Enterprise Linux](#centos-fedora-and-red-hat-enterprise-linux)
-- [Дистрибутиви Linux на базі Debian та Ubuntu](#debian-and-ubuntu-based-linux-distributions)
-- [Exherbo Linux](#exherbo-linux)
-- [fnm](#fnm)
-- [FreeBSD](#freebsd)
-- [Gentoo](#gentoo)
-- [IBM i](#ibm-i)
-- [macOS](#macos)
-- [n](#n)
-- [NetBSD](#netbsd)
-- [Nodenv](#nodenv)
-- [nvm](#nvm)
-- [nvs](#nvs)
-- [OpenBSD](#openbsd)
-- [openSUSE та SLE](#opensuse-and-sle)
-- [SmartOS та illumos](#smartos-and-illumos)
-- [Snap](#snap)
-- [Solus](#solus)
-- [vfox](#vfox)
-- [Void Linux](#void-linux)
-- [Windows](#windows-1)
-- [z/OS](#zos)
-
----
+> Пакети на цій сторінці супроводжуються та підтримуються їхніми відповідними розробниками, **не** командою Node.js. Будь ласка, повідомляйте про проблеми цих пакетів їхнім розробникам. Якщо виявиться, що проблема є помилкою Node.js, то вони повідомлять нас про неї.
 
 ## Alpine Linux
 
@@ -96,8 +66,8 @@ dnf module install nodejs:18/common
 
 Ці ресурси надають пакети, які сумісні з CentOS, Fedora та RHEL.
 
-- [Snaps Node.js](#snap) обслуговуються та підтримуються на https://github.com/nodejs/snap
-- [Бінарні дистрибутиви Node.js](#debian-and-ubuntu-based-linux-distributions) обслуговуються та підтримуються [NodeSource](https://github.com/nodesource/distributions)
+- [Snaps Node.js](#snap) супроводжуються та підтримуються на https://github.com/nodejs/snap
+- [Бінарні дистрибутиви Node.js](#debian-and-ubuntu-based-linux-distributions) супроводжуються та підтримуються [NodeSource](https://github.com/nodesource/distributions)
 
 ## Дистрибутиви Linux на базі Debian та Ubuntu
 
